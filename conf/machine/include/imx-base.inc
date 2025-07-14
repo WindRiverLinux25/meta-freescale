@@ -75,9 +75,9 @@ UBOOT_SUFFIX ?= "${UBOOT_SUFFIX:pn-${IMX_DEFAULT_BOOTLOADER}}"
 # wic based images.
 SPL_BINARY ??= "${@get_spl_binary(d)}"
 
-PREFERRED_PROVIDER_u-boot ??= "${IMX_DEFAULT_BOOTLOADER}"
-PREFERRED_PROVIDER_u-boot-mfgtool ??= "${IMX_DEFAULT_BOOTLOADER}"
 PREFERRED_PROVIDER_virtual/bootloader ??= "${IMX_DEFAULT_BOOTLOADER}"
+PREFERRED_PROVIDER_u-boot ??= "${PREFERRED_PROVIDER_virtual/bootloader}"
+PREFERRED_PROVIDER_u-boot-mfgtool ??= "${PREFERRED_PROVIDER_virtual/bootloader}"
 
 PREFERRED_PROVIDER_u-boot-mxsboot-native ??= "u-boot-fslc-mxsboot-native"
 
@@ -538,13 +538,15 @@ PREFERRED_VERSION_gstreamer1.0-plugins-good:mx9-nxp-bsp ??= "1.24.7.imx"
 
 # GStreamer copied recipes
 PREFERRED_VERSION_gst-devtools:mx8-nxp-bsp              ??= "1.24.0.imx"
-PREFERRED_VERSION_gstreamer1.0-libav:mx8-nxp-bsp        ??= "1.24.0.imx"
+PREFERRED_VERSION_gst-examples:mx8-nxp-bsp              ??= "1.24.7.imx"
+PREFERRED_VERSION_gstreamer1.0-libav:mx8-nxp-bsp        ??= "1.24.7.imx"
 PREFERRED_VERSION_gstreamer1.0-plugins-ugly:mx8-nxp-bsp ??= "1.24.0.imx"
 PREFERRED_VERSION_gstreamer1.0-python:mx8-nxp-bsp       ??= "1.24.0.imx"
 PREFERRED_VERSION_gstreamer1.0-rtsp-server:mx8-nxp-bsp  ??= "1.24.0.imx"
 PREFERRED_VERSION_gstreamer1.0-vaapi:mx8-nxp-bsp        ??= "1.24.0.imx"
 PREFERRED_VERSION_gst-devtools:mx9-nxp-bsp              ??= "1.24.0.imx"
-PREFERRED_VERSION_gstreamer1.0-libav:mx9-nxp-bsp        ??= "1.24.0.imx"
+PREFERRED_VERSION_gst-examples:mx9-nxp-bsp              ??= "1.24.7.imx"
+PREFERRED_VERSION_gstreamer1.0-libav:mx9-nxp-bsp        ??= "1.24.7.imx"
 PREFERRED_VERSION_gstreamer1.0-plugins-ugly:mx9-nxp-bsp ??= "1.24.0.imx"
 PREFERRED_VERSION_gstreamer1.0-python:mx9-nxp-bsp       ??= "1.24.0.imx"
 PREFERRED_VERSION_gstreamer1.0-rtsp-server:mx9-nxp-bsp  ??= "1.24.0.imx"
@@ -584,18 +586,18 @@ PREFERRED_PROVIDER_virtual/libg2d              ?= "imx-gpu-g2d"
 PREFERRED_PROVIDER_virtual/libg2d:imxdpu       ?= "imx-dpu-g2d"
 PREFERRED_PROVIDER_virtual/libg2d:mx93-nxp-bsp ?= "imx-pxp-g2d"
 
-PREFERRED_VERSION_weston:imx-nxp-bsp      ??= "12.0.4.imx"
+PREFERRED_VERSION_weston:imx-nxp-bsp      ??= "14.0.1.imx"
 # i.MX 6 & 7 stay on weston 10.0 for fbdev
 PREFERRED_VERSION_weston:mx6-nxp-bsp      ??= "10.0.5.imx"
 PREFERRED_VERSION_weston:mx7-nxp-bsp      ??= "10.0.5.imx"
 PREFERRED_VERSION_weston:imx-mainline-bsp   = ""
 
-PREFERRED_VERSION_wayland-protocols:imx-nxp-bsp  ??= "1.32.imx"
+PREFERRED_VERSION_wayland-protocols:imx-nxp-bsp  ??= "1.37.imx"
 
-PREFERRED_VERSION_xwayland:imx-nxp-bsp ??= "23.2.5.imx"
+PREFERRED_VERSION_xwayland:imx-nxp-bsp ??= "24.1.6.imx"
 
 # Use i.MX libdrm Version
-PREFERRED_VERSION_libdrm:imx-nxp-bsp ??= "2.4.116.imx"
+PREFERRED_VERSION_libdrm:imx-nxp-bsp ??= "2.4.123.imx"
 
 PREFERRED_VERSION_spirv-headers:imxvulkan            ??= "1.3.275.0.imx"
 PREFERRED_VERSION_spirv-tools:imxvulkan              ??= "1.3.275.0.imx"
@@ -617,8 +619,8 @@ PREFERRED_VERSION_opencv:mx8-nxp-bsp ??= "4.6.0.imx"
 PREFERRED_VERSION_opencv:mx9-nxp-bsp ??= "4.6.0.imx"
 
 # Handle default kernel
-IMX_DEFAULT_KERNEL:imx-mainline-bsp = "linux-fslc"
-IMX_DEFAULT_KERNEL:imx-nxp-bsp      = "linux-fslc-imx"
+IMX_DEFAULT_KERNEL:imx-mainline-bsp ??= "linux-fslc"
+IMX_DEFAULT_KERNEL:imx-nxp-bsp      ??= "linux-fslc-imx"
 
 PREFERRED_PROVIDER_virtual/kernel ??= "${IMX_DEFAULT_KERNEL}"
 
