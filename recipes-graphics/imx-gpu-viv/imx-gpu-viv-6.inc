@@ -332,7 +332,6 @@ RPROVIDES:libegl-imx = "libegl libegl1"
 RPROVIDES:libegl-imx-dev = "libegl-dev libegl1-dev"
 
 FILES:libgal-imx = "${libdir}/libGAL${SOLIBS} ${libdir}/libGAL_egl${SOLIBS}"
-FILES:libgal-imx-dev:remove = "${includedir}/HAL"
 RDEPENDS:libgal-imx += "${@bb.utils.contains('PACKAGECONFIG', 'valgrind', 'valgrind', '', d)}"
 RPROVIDES:libgal-imx += "libgal-imx"
 RRECOMMENDS:libgal-imx += "kernel-module-imx-gpu-viv"
